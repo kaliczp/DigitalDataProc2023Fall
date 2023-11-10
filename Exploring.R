@@ -20,4 +20,18 @@ rawYears[-1]
 
 ## Plot
 plot(rawdata)
-plot(rowSums(rawdata[,-1]))
+## Default types
+plot(rowSums(rawdata[,-1]), type ="p")
+plot(rowSums(rawdata[,-1]), type ="l")
+plot(rowSums(rawdata[,-1]), type ="h")
+
+## Modify plot
+max(rowSums(rawdata[,-1]));min(rowSums(rawdata[,-1]))
+plot(rowSums(rawdata[,-1]), type ="h", ylim= c(0,435))
+plot(rawYears, rowSums(rawdata[,-1]), type ="h", ylim= c(0,435))
+
+## Make an advanced plot
+plot(x = rawYears, y = rowSums(rawdata[,-1]),
+     type ="h", xaxs = "i", yaxs = "i",
+     xlab = "Years", ylab = "Precipitation [mm]",
+     ylim= c(0,435))
