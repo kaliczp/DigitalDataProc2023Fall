@@ -1,0 +1,2 @@
+## Yearly sums
+rowSums(rawdata)
