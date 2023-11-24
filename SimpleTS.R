@@ -1,1 +1,2 @@
-ts(data = rowSums(rawdata[,-1]), 1980, 2022)
+YearlyPrec <- ts(data = rowSums(rawdata[,-1]), 1980, 2022)
+plot(YearlyPrec)
