@@ -27,3 +27,7 @@ cor(PT.df$P, PT.df$T, use = "complete.obs")
 ## Select rows where temperature available
 cor(PT.df[!is.na(PT.df$T),])
 cor(PT.df[!is.na(PT.df$T), "P"], PT.df[!is.na(PT.df$T),"T"])
+
+## Exclude the low precipitation months
+plot(PT.df[PT.df$P > 10 & !is.na(PT.df$T),])
+cor(PT.df[PT.df$P > 10 & !is.na(PT.df$T),])
