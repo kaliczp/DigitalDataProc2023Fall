@@ -22,5 +22,8 @@ plot(PT.df[, "T"], PT.df[, "P"])
 ## Correlation
 cor(PT.df)
 cor(PT.df, use = "complete.obs")
+cor(PT.df["P"], PT.df["T"], use = "complete.obs")
+cor(PT.df$P, PT.df$T, use = "complete.obs")
 ## Select rows where temperature available
-
+cor(PT.df[!is.na(PT.df$T),])
+cor(PT.df[!is.na(PT.df$T), "P"], PT.df[!is.na(PT.df$T),"T"])
