@@ -1,4 +1,4 @@
-install.packages("zoo")
+install.packages("xts")
 ## Load library
 library(xts)
 ?xts
