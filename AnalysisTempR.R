@@ -34,3 +34,9 @@ cor(PT.df[PT.df$P > 10 & !is.na(PT.df$T),])
 
 ## Generate a linear model
 PTabove10mm.df <- PT.df[PT.df$P > 10 & !is.na(PT.df$T),]
+plot(T ~ P,data = PTabove10mm.df)
+TP.lm <- lm(T ~ P,data = PTabove10mm.df)
+summary(TP.lm)
+abline(TP.lm)
+plot(TP.lm)
+predict(TP.lm, PT.df[is.na(PT.df$T)&PT.df$P > 10 ,])
