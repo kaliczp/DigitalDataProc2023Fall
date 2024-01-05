@@ -33,3 +33,22 @@ abline(0,1)
 coffe.lm <- lm(coffee_area ~ farm_size -1 , SheemaOK)
 abline(coffe.lm)
 
+## Select continous data
+SheemaExpl <- as.data.frame(read_excel("HH_Summary_Database_Sheema.xlsx", 2))
+## Test column names
+data.frame(Table = names(Sheema)[-ncol(Sheema)], Explanation = SheemaExpl[, "Variable name"])
+data.frame(Table = names(Sheema)[-39], Explanation = SheemaExpl[, "Variable name"])
+names(Sheema)[39]
+## Plot only continuous variables
+plot(Sheema[,SheemaExpl[, "Variable type"] == "Continuous"])
+cor(Sheema[,SheemaExpl[, "Variable type"] == "Continuous"])
+
+## Visualise correlation matrix
+# http://www.sthda.com/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2
+install.packages("ggcorrplot")
+library(ggcorrplot)
+SheemaCorMT <- cor(Sheema[,SheemaExpl[, "Variable type"] == "Continuous" & names(Sheema) != "forest_area_mean"])
+SheemaPval <- cor_pmat(Sheema[,SheemaExpl[, "Variable type"] == "Continuous" & names(Sheema) != "forest_area_mean"])
+ggcorrplot(SheemaCorMT)
+ggcorrplot(SheemaCorMT, hc.order = TRUE, outline.col = "white")
+ggcorrplot(SheemaCorMT, hc.order = TRUE, type = "lower", p.mat = SheemaPval)
