@@ -10,3 +10,7 @@ OsmanRaw[73, "DOM"] <- OsmanRaw[73, "D_AT_T"]
 OsmanRaw[73, "D_AT_T"] <- 0
 OsmanRaw[350, "D_AT_T"] <- 0
 OsmanRaw$D_AT_T <- as.numeric(OsmanRaw$D_AT_T)
+which(is.na(as.numeric(OsmanRaw$H_AS_SH)))
+OsmanRaw[50, "H_AS_SH"] <- 1.6
+OsmanRaw$H_AS_SH <- as.numeric(OsmanRaw$H_AS_SH)
+## Convert DOM variables to factor
