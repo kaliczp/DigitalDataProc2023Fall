@@ -18,7 +18,13 @@ names(OsmanRaw)[16:23]
 names(OsmanRaw)[32:39]
 
 DH <- data.frame(Diameter = as.vector(as.matrix(OsmanRaw[,16:23])),
-                 Height = as.vector(as.matrix(OsmanRaw[,32:39])))
-plot(DH)
+                 Height = as.vector(as.matrix(OsmanRaw[,32:39])),
+                 TreeSpec = rep(gsub("_T", "", gsub("_SH", "", gsub("D_", "", names(OsmanRaw)[16:23]))), each = nrow(OsmanRaw)),
+                 RowNumber = rep(1:nrow(OsmanRaw), time = 8)
+                 )
+## Skip 0,0 pairs
+DHonly <- DH[!(DH$Diameter == 0 & DH$Height == 0), ]
+
+plot(Diameter ~ Height, DHonly)
 
 ## Convert DOM variables to factor
