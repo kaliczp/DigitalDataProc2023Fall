@@ -9,4 +9,4 @@ OsmanRaw[c(73, 350), "D_AT_T"]
 OsmanRaw[73, "DOM"] <- OsmanRaw[73, "D_AT_T"]
 OsmanRaw[73, "D_AT_T"] <- 0
 OsmanRaw[350, "D_AT_T"] <- 0
-OsmanRaw[350, "D_AT_T"] <- as.numeric(OsmanRaw[350, "D_AT_T"])
+OsmanRaw$D_AT_T <- as.numeric(OsmanRaw$D_AT_T)
