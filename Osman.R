@@ -32,4 +32,21 @@ DHonly[DHonly$Diameter > 40,]
 DHonly[DHonly$Diameter == 0,]
 DHonly[DHonly$Height == 0,]
 
+DHok <- DHonly[!(DHonly$Height == 0 | DHonly$Diameter == 0),]
+
+plot(Diameter ~ Height, DHok)
+
+## Check thre regression line
+DH.lm <- lm(Diameter ~ Height, DHok)
+abline(DH.lm)
+summary(DH.lm)
+
+plot(Height ~ Diameter, DHok)
+DH.lm <- lm(Height ~ Diameter, DHok)
+abline(DH.lm)
+
+DH.lm <- lm(Height ~ Diameter, DHok[DHok$Height < 5 & DHok$Diameter < 20,])
+abline(DH.lm, col = "red")
+
+
 ## Convert DOM variables to factor
