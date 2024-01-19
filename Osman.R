@@ -27,4 +27,9 @@ DHonly <- DH[!(DH$Diameter == 0 & DH$Height == 0), ]
 
 plot(Diameter ~ Height, DHonly)
 
+## Check erroneous pairs
+DHonly[DHonly$Diameter > 40,]
+DHonly[DHonly$Diameter == 0,]
+DHonly[DHonly$Height == 0,]
+
 ## Convert DOM variables to factor
