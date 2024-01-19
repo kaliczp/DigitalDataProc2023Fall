@@ -13,4 +13,12 @@ OsmanRaw$D_AT_T <- as.numeric(OsmanRaw$D_AT_T)
 which(is.na(as.numeric(OsmanRaw$H_AS_SH)))
 OsmanRaw[50, "H_AS_SH"] <- 1.6
 OsmanRaw$H_AS_SH <- as.numeric(OsmanRaw$H_AS_SH)
+### Diameter vs. heights
+names(OsmanRaw)[16:23]
+names(OsmanRaw)[32:39]
+
+DH <- data.frame(Diameter = as.vector(as.matrix(OsmanRaw[,16:23])),
+                 Height = as.vector(as.matrix(OsmanRaw[,32:39])))
+plot(DH)
+
 ## Convert DOM variables to factor
