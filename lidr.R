@@ -10,7 +10,7 @@ library(viridisLite)
 library(terra)
 
 
-mypath<- ("E:/PhD in Sopron/Coureses/Data collection and Analysis/My Training data/lab07Data")
+mypath<- ("lab07Data")
 myfile<- "clp_26Oct2017.las"
 infile<- file.path(mypath,myfile)
 las<- readLAS(infile, select = "xyzirc")
