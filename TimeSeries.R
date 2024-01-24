@@ -5,10 +5,10 @@ dir()
 
 setwd ("F:/PhD Courses/Digital Data collection and processing/Dataset/Climatic Data/C.D. White Nile")
 list.files()
-Rdata <- read.csv("Rainfall (Kosti).csv")
-Tdata <- read.csv("Temperature(kosti).csv")
-Rdata <- read.csv("Rainfall (Al Douiem).csv")
-Tdata <- read.csv("Temperature (Al Douiem).csv")
+RdataK <- read.csv("Rainfall (Kosti).csv")
+TdataK <- read.csv("Temperature(kosti).csv")
+RdataAD <- read.csv("Rainfall (Al Douiem).csv")
+TdataAD <- read.csv("Temperature (Al Douiem).csv")
 ## Rainfall analysis
 
 library(tidyverse)
