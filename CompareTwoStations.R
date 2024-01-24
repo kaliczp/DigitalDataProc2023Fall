@@ -8,3 +8,8 @@ plot(coredata(TempK.xts),coredata(TempAD.xts))
 ## Correlation
 TempKandAD.df <- data.frame(Kosti = coredata(TempK.xts),AlDouiem = coredata(TempAD.xts))
 cor(TempKandAD.df[!is.na(TempKandAD.df$AlDouiem),])
+
+## Linear Model
+plot(AlDouiem ~ Kosti, TempKandAD.df)
+TempKAD.lm <- lm(AlDouiem ~ Kosti, TempKandAD.df)
+abline(TempKAD.lm)
