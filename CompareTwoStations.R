@@ -19,3 +19,12 @@ AlDouiemOK <- TempKandAD.df$AlDouiem
 AlDouiemOK[is.na(AlDouiemOK)] <- predict(TempKAD.lm, TempKandAD.df[is.na(TempKandAD.df$AlDouiem),])
 TempADfull.xts <- xts(AlDouiemOK, TempDate)
 plot(TempADfull.xts)
+
+pdf("PredictedTemp.pdf", width = 28)
+plot.zoo(TempADfull.xts, lwd = 3, col = "lightgray", xaxs = "i",
+         ylab = expression("Temperature ["*~degree*C*"]"))
+grid(nx = NA, ny = NULL)
+lines(as.zoo(TempAD.xts))
+lines(as.zoo(TempK.xts), col = 2)
+legend("bottomright", legend = c("Kosti", "Al Douiem", "Predicted A. D."), col = c(2, 1, "lightgray"), lwd = c(1, 1, 2))
+dev.off()
