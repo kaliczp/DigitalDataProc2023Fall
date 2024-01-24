@@ -13,3 +13,9 @@ cor(TempKandAD.df[!is.na(TempKandAD.df$AlDouiem),])
 plot(AlDouiem ~ Kosti, TempKandAD.df)
 TempKAD.lm <- lm(AlDouiem ~ Kosti, TempKandAD.df)
 abline(TempKAD.lm)
+
+## Estimate missing data
+AlDouiemOK <- TempKandAD.df$AlDouiem
+AlDouiemOK[is.na(AlDouiemOK)] <- predict(TempKAD.lm, TempKandAD.df[is.na(TempKandAD.df$AlDouiem),])
+TempADfull.xts <- xts(AlDouiemOK, TempDate)
+plot(TempADfull.xts)
